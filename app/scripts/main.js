@@ -36,16 +36,20 @@
 	WeatherWidget.prototype.getWeatherData = function(z){
 		var instance = this;
 		var zipcode = z;
-
-		$.ajax('http://query.yahooapis.com/v1/public/yql?q=select%20item%20from%20weather.forecast%20where%20location%3D%22' + zipcode + '%22&format=json')
-		.done(function(data){
-			instance.weatherData = data.query.results.channel.item;
-			instance.forecastDefer.resolve();
-		})
-		.error(function(e){
-			instance.container.addClass('error');
-			instance.inner.html('<p>An error occurred retrieving weather data</p>');
-		});
+		var regex = /^\d{5}$/;
+		
+		if(regex.test(zipcode)){
+			$.ajax('http://query.yahooapis.com/v1/public/yql?q=select%20item%20from%20weather.forecast%20where%20location%3D%22' + zipcode + '%22&format=json')
+			.done(function(data){
+				instance.weatherData = data.query.results.channel.item;
+				instance.forecastDefer.resolve();
+			})
+			.error(function(e){
+				instance.createErrorMsg("ajax");
+			});
+		}else{
+				instance.createErrorMsg("zipcode");
+		}
 	};
 
 	//listener event for ajax calls. attaches spinner image to widget while data is being fetched
@@ -133,6 +137,27 @@
 		}
 
 		return container;
+	};
+
+	WeatherWidget.prototype.createErrorMsg = function(t){
+		var instance = this;
+		var type = t;
+		var msg;
+		
+		switch (type) {
+			case "ajax":
+				msg = "An error occurred retrieving weather data";
+				break;
+			case "zipcode":
+				msg = "You have entered an invalid zipcode";
+				break;
+			default:
+				msg = "An error occurred";
+		}	
+
+		instance.container.addClass('error');
+		instance.inner.html('<p>' + msg + '</p>');
+			
 	};
 
 	//centers the widget on the page

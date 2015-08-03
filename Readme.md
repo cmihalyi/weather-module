@@ -19,3 +19,9 @@ gulp serve
 gulp build
 gulp serve:dist
 </pre>
+
+
+#####module allows for displaying any 5 digit valid zipcode###
+<pre>
+WeatherWidget("22102");
+</pre>
