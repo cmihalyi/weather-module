@@ -1,0 +1,96 @@
+body{
+
+}
+
+#weatherWidget{
+	position: relative;
+}
+
+#weatherWidget.loading{
+	background: url("../images/loader.gif") center center no-repeat;
+}
+
+#weatherWidget.error{
+	text-align: center;
+	color: red;
+	font-weight: bold;
+}
+
+.loading .weather-widget-inner{
+	visibility: hidden;
+}
+
+.weather-widget-inner{
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	padding: 10px;
+	width: 310px;
+	height: 160px;
+	border: 1px solid black;
+	border-radius: 8px;
+	line-height: 1;
+}
+
+.weather-widget-inner .table-block{
+	display: table;
+}
+
+.weather-widget-inner .cell-block{
+	display: table-cell;
+	vertical-align: bottom;
+}
+
+.weather-widget-inner .locale{
+	margin: 0;
+}
+
+.weather-widget-inner img{
+
+}
+
+.weather-widget-inner .temp{
+	font-size: 60px;
+}
+
+.weather-widget-inner .current-temp .description{
+	display: block;
+	font-size: 12px;
+}
+
+.weather-widget-inner .five-day-forecast{
+	margin: 10px 0;
+}
+
+
+.weather-widget-inner .five-day-forecast li{
+	padding-bottom: 6px;
+	width: 20%;
+	border-left: 1px solid #ccc;
+	text-align: center;
+}
+
+.weather-widget-inner .five-day-forecast li:first-child{
+	border-left: none;
+}
+
+.weather-widget-inner .five-day-forecast span{
+	font-size: 12px;
+	font-weight: bold;
+}
+
+.weather-widget-inner .five-day-forecast .day{
+	margin-bottom: 0;
+	font-weight: bold;
+}
+
+.weather-widget-inner .five-day-forecast .hi:after{
+	content: "/";
+	padding: 0 2px 0 1px;
+}
+
+.weather-widget-inner .five-day-forecast .low{
+
+}
+
