@@ -1,13 +1,21 @@
 ###Weather Module###
 <hr />
 
-####developer version is app/index.html####
-####production version is dist/index.html####
+clone onto local machine
 
-######run local dev server:######
-<pre>gulp serve</pre>
+#####install necessary packages#####
+<pre>
+npm install
+bower install
+</pre>
 
-######run local prod server:######
-<pre>gulp serve:dist</pre>
+#####for a development version of codebase run:#####
+<pre>
+gulp serve
+</pre>
 
-view in browser @ http://localhost:9000/
+#####for a production version of codebase run:#####
+<pre>
+gulp build
+gulp serve:dist
+</pre>
