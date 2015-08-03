@@ -1,4 +1,4 @@
-###Cvent UI Candidate Tech Challenge###
+###Weather Module###
 <hr />
 
 ####developer version is app/index.html####
